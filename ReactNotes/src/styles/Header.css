@@ -4,13 +4,15 @@
 }
 
 .headerWrapper {
-  background-color: rgb(32 33 36);
+  /* background-color: rgb(32 33 36); */
+  background-color: var(--bg-color);
   display: flex;
   width: 100vw;
   height: 10vh;
   justify-content: space-between;
   border-bottom: 1px solid rgb(95 99 104);
-  color: white;
+  /* color: white; */
+  color: var(--text-color);
 }
 
 .leftbarWrapper {
@@ -45,7 +47,8 @@
 }
 
 .search-BarWrapper {
-  background-color: rgb(40 42 44);
+  /* background-color: rgb(40 42 44); */
+  background-color: var(--inputBar-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,9 +62,11 @@
   outline: 0;
   width: 86%;
   height: 100%;
-  background-color: rgb(40 42 44);
+  /* background-color: rgb(40 42 44); */
+  background-color: var(--inputBar-color);
   margin-left: 20px;
-  color: rgb(117 117 117);
+  /* color: rgb(117 117 117); */
+  color: var(--text-color);
   font-size: 1.5rem;
 }
 

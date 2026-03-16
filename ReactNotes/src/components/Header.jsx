@@ -6,9 +6,11 @@ import { FiSun } from "react-icons/fi";
 import { FiMoon } from "react-icons/fi";
 
 import "../styles/Header.css"
+import useTheme from "../customHook/UseTheme";
 
 
 function Header() {
+  const { theme, toggleTheme } = useTheme();
   return (
     <>
       <div className="headerWrapper">
@@ -16,7 +18,7 @@ function Header() {
           <div className="hamburger"><RxHamburgerMenu style={{ fontSize: "2.5rem", marginLeft: "15px", cursor: "pointer" }} /></div>
 
           <div className="brand">
-            <FaRegNoteSticky style={{ marginRight: "10px", fontSize: "2.5rem", color: "yellow" }} />
+            <FaRegNoteSticky style={{ marginRight: "10px", fontSize: "2.5rem" }} />
             <div className="brandHeading">ReactNotes</div>
           </div>
         </div>
@@ -34,9 +36,13 @@ function Header() {
           <div className="view">
             <CiGrid2H className="gridIcon" />
           </div>
-          <div className="darklightview">
-            <FiMoon className="modeIcon" />
-            {/* <FiSun className="modeIcon" /> */}
+          <div className="darklightview" onClick={toggleTheme}>
+
+            {
+              theme === "light" ? <FiSun className="modeIcon" /> : <FiMoon className="modeIcon" />
+            }
+
+            {/*  */}
 
           </div>
         </div>
