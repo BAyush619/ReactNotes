@@ -18,7 +18,7 @@ function Header() {
           <div className="hamburger"><RxHamburgerMenu style={{ fontSize: "2.5rem", marginLeft: "15px", cursor: "pointer" }} /></div>
 
           <div className="brand">
-            <FaRegNoteSticky style={{ marginRight: "10px", fontSize: "2.5rem" }} />
+            <FaRegNoteSticky style={{ cursor: "pointer", marginRight: "10px", fontSize: "2.5rem" }} />
             <div className="brandHeading">ReactNotes</div>
           </div>
         </div>

@@ -1,0 +1,32 @@
+.noteSecItemWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  outline: 1px solid rebeccapurple;
+}
+
+.noteSecIcons {
+  font-size: 2.5rem;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.slideBarWrapper:hover .noteSectitle {
+
+  opacity: 1;
+  display: block;
+}
+
+.noteSectitle {
+
+  opacity: 0;
+  display: none;
+  text-align: left;
+  width: 100%;
+  margin-left: 20px;
+  font-size: 2rem;
+}
