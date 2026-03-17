@@ -9,13 +9,13 @@ import "../styles/Header.css"
 import useTheme from "../customHook/UseTheme";
 
 
-function Header() {
+function Header({ toggleSideBar }) {
   const { theme, toggleTheme } = useTheme();
   return (
     <>
       <div className="headerWrapper">
         <div className="leftbarWrapper">
-          <div className="hamburger"><RxHamburgerMenu style={{ fontSize: "2.5rem", marginLeft: "15px", cursor: "pointer" }} /></div>
+          <div className="hamburger" onClick={() => toggleSideBar()}><RxHamburgerMenu style={{ fontSize: "1.5rem", cursor: "pointer" }} /></div>
 
           <div className="brand">
             <FaRegNoteSticky style={{ cursor: "pointer", marginRight: "10px", fontSize: "2.5rem" }} />

@@ -1,5 +1,20 @@
 .slideBarWrapper {
   width: 20%;
   height: 100vh;
+  width: fit-content;
+  margin-top: 20px;
+}
 
+.noteSectitle.openSideBar {
+  display: block;
+  opacity: 1;
+}
+
+.noteSectitle.closeSideBar {
+  display: none;
+  opacity: 0;
+}
+
+.sideBarIsOpen {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }

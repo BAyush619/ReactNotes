@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import NoteSection from "./NoteSection";
 import "../styles/SideBar.css"
 
-function SideBar() {
+function SideBar({ isSideBarOpen }) {
 
   const noteSectionData = [
     {
@@ -24,10 +24,13 @@ function SideBar() {
 
   return (
     <>
-      <div className="slideBarWrapper">
+      <div className={`slideBarWrapper ${isSideBarOpen ? "sideBarIsOpen" : "sideBarIsClose"}`}>
         {
-          noteSectionData.map(noteSecItem => (
-            <NoteSection noteSectionData={noteSecItem}></NoteSection>
+          noteSectionData.map((noteSecItem, index) => (
+            <NoteSection
+              key={index}
+              noteSectionData={noteSecItem}
+              isSideBarOpen={isSideBarOpen}></NoteSection>
           ))
         }
 

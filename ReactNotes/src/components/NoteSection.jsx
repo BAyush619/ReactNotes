@@ -1,5 +1,7 @@
 import "../styles/NoteSection.css";
-function NoteSection({ noteSectionData }) {
+function NoteSection({ noteSectionData, isSideBarOpen }) {
+
+  console.log(isSideBarOpen)
   return (
     <>
 
@@ -11,7 +13,7 @@ function NoteSection({ noteSectionData }) {
           }
         </div>
 
-        <div className="noteSectitle">
+        <div className={`noteSectitle ${isSideBarOpen ? `openSideBar` : `closeSideBar`}`}>
           {
             noteSectionData.title
           }
