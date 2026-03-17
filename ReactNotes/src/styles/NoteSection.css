@@ -4,7 +4,6 @@
   align-items: center;
   border-top-right-radius: 30% 100px;
   border-bottom-right-radius: 30% 100px;
-  outline: 1px solid beige;
 }
 
 .noteSecIcons {
@@ -28,4 +27,8 @@
   margin-left: 20px;
   margin-right: 20px;
   font-size: 2rem;
+}
+
+.activeSectionBar {
+  background-color: var(--sideBar-color)
 }

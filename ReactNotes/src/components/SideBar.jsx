@@ -4,8 +4,11 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 import NoteSection from "./NoteSection";
 import "../styles/SideBar.css"
+import { useState } from "react";
 
 function SideBar({ isSideBarOpen }) {
+
+  const [isActive, setIsActive] = useState("Note");
 
   const noteSectionData = [
     {
@@ -30,7 +33,10 @@ function SideBar({ isSideBarOpen }) {
             <NoteSection
               key={index}
               noteSectionData={noteSecItem}
-              isSideBarOpen={isSideBarOpen}></NoteSection>
+              isSideBarOpen={isSideBarOpen}
+              isActive={isActive}
+              setIsActive={setIsActive}
+            ></NoteSection>
           ))
         }
 

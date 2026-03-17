@@ -5,6 +5,8 @@
 
 .headerWrapper {
   /* background-color: rgb(32 33 36); */
+  position: sticky;
+  top: 0;
   background-color: var(--bg-color);
   display: flex;
   width: 100vw;
@@ -94,7 +96,7 @@
 
 .action-bar {
   margin-right: 30px;
-  width: 5%;
+  width: 10%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -105,19 +107,19 @@
 }
 
 .gridIcon {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .modeIcon {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .view {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 
@@ -126,8 +128,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 
@@ -143,8 +145,90 @@
   justify-content: center;
   align-items: center;
   margin-left: 20px;
+  position: relative;
 }
 
 .hamburger:hover {
   background-color: var(--inputBar-color);
+}
+
+
+/* tooltip */
+.tooltip {
+  color: white;
+  position: absolute;
+  top: 135%;
+  right: -66%;
+  width: 100px;
+  height: 23px;
+  text-align: center;
+  padding: 2px;
+  background-color: var(--tooltip-color);
+  border-radius: 3px;
+  margin-top: 3px;
+  display: none;
+  outline: 0;
+}
+
+.hamburger:hover .tooltip {
+  display: block;
+}
+
+.tooltip-ReactNotes {
+  color: white;
+  position: absolute;
+  top: 94px;
+  left: 70px;
+  width: 100px;
+  height: 23px;
+  text-align: center;
+  padding: 2px;
+  background-color: var(--tooltip-color);
+  border-radius: 3px;
+  margin-top: 3px;
+  display: none;
+  outline: 0;
+}
+
+.brand:hover .tooltip-ReactNotes {
+  display: block;
+}
+
+.tooltip-ListView {
+  color: white;
+  position: absolute;
+  top: 92px;
+  right: 121px;
+  width: 80px;
+  height: 23px;
+  text-align: center;
+  padding: 2px;
+  background-color: var(--tooltip-color);
+  border-radius: 3px;
+  margin-top: 3px;
+  display: none;
+  outline: 0;
+}
+
+.view:hover .tooltip-ListView {
+  display: block;
+}
+
+.tooltip-mode {
+  color: white;
+  position: absolute;
+  top: 93px;
+  right: 45px;
+  width: 54px;
+  height: 23px;
+  text-align: center;
+  background-color: var(--tooltip-color);
+  border-radius: 3px;
+  margin-top: 3px;
+  display: none;
+  outline: 0;
+}
+
+.darklightview:hover .tooltip-mode {
+  display: block;
 }

@@ -15,10 +15,14 @@ function Header({ toggleSideBar }) {
     <>
       <div className="headerWrapper">
         <div className="leftbarWrapper">
-          <div className="hamburger" onClick={() => toggleSideBar()}><RxHamburgerMenu style={{ fontSize: "1.5rem", cursor: "pointer" }} /></div>
+          <div className="hamburger" onClick={() => toggleSideBar()}>
+            <RxHamburgerMenu style={{ fontSize: "1.5rem", cursor: "pointer" }} />
+            <span className="tooltip">Main Menu</span>
+          </div>
 
           <div className="brand">
             <FaRegNoteSticky style={{ cursor: "pointer", marginRight: "10px", fontSize: "2.5rem" }} />
+            <span className="tooltip-ReactNotes">React Notes</span>
             <div className="brandHeading">ReactNotes</div>
           </div>
         </div>
@@ -35,14 +39,14 @@ function Header({ toggleSideBar }) {
         <div className="action-bar">
           <div className="view">
             <CiGrid2H className="gridIcon" />
+            <span className="tooltip-ListView">List View</span>
           </div>
           <div className="darklightview" onClick={toggleTheme}>
 
             {
               theme === "light" ? <FiSun className="modeIcon" /> : <FiMoon className="modeIcon" />
             }
-
-            {/*  */}
+            <span className="tooltip-mode">Mode</span>
 
           </div>
         </div>

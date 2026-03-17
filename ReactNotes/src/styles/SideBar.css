@@ -2,7 +2,9 @@
   width: 20%;
   height: 100vh;
   width: fit-content;
-  margin-top: 20px;
+  margin-top: 30px;
+  position: fixed;
+  border-top-right-radius: 20px;
 }
 
 .noteSectitle.openSideBar {

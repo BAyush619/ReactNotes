@@ -1,19 +1,19 @@
 import "../styles/NoteSection.css";
-function NoteSection({ noteSectionData, isSideBarOpen }) {
+function NoteSection({ noteSectionData, isSideBarOpen, setIsActive, isActive }) {
 
   console.log(isSideBarOpen)
   return (
     <>
 
-      <div className="noteSecItemWrapper">
+      <div className={`noteSecItemWrapper ${isActive === noteSectionData.title ? `activeSectionBar` : ""}`}>
 
-        <div className="noteSecIcons">
+        <div className={`noteSecIcons `} onClick={() => setIsActive(noteSectionData.title)}>
           {
             noteSectionData.icon
           }
         </div>
 
-        <div className={`noteSectitle ${isSideBarOpen ? `openSideBar` : `closeSideBar`}`}>
+        <div className={`noteSectitle ${isSideBarOpen ? `openSideBar` : `closeSideBar`}`} onClick={() => setIsActive(noteSectionData.title)}>
           {
             noteSectionData.title
           }

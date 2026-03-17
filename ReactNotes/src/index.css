@@ -3,14 +3,19 @@
   --text-color: white;
   --body-color: #282c2e;
   --inputBar-color: rgb(40 42 44);
+  --sideBar-color: rgb(65 51 28);
+  --tooltip-color: #393d40;
 }
 
+/* #rgb(65 51 28); */
 /* #282c2e */
 [data-theme="light"] {
   --bg-color: white;
   --text-color: black;
   --body-color: white;
-  --inputBar-color: rgb(240 244 249)
+  --inputBar-color: rgb(240 244 249);
+  --sideBar-color: #feefc3;
+  --tooltip-color: #4f514f;
 }
 
 body {
