@@ -1,8 +1,5 @@
 .NotesWrapper {
   height: 8vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .InputAccordian {
@@ -10,9 +7,79 @@
   width: 35%;
   height: 40%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
   padding: 10px;
   outline: 1px solid rgb(95 99 104);
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.accordian-body {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.opneAccordian {
+  height: 100px;
+}
+
+.NotesTitle {
+  width: 100%;
+}
+
+.tile-inputWrapper {
+  display: flex;
+
+}
+
+.tile-inputWrapper>div:first-child {
+  flex: 11;
+}
+
+.tile-inputWrapper>div:last-child {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pin-wrpper {
+  cursor: pointer !important;
+  position: relative;
+  margin-left: 10px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+
+.NotesTitle {
+  height: 40px;
+  font-size: 1.5rem;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  border: 0;
+  outline: 0;
+}
+
+.tooltip-pin {
+  position: absolute;
+  top: 42px;
+  right: -14px;
+  width: 68px;
+  height: 25px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background-color: var(--inputBar-color);
+}
+
+.pin-wrpper:hover {
+  background-color: var(--inputBar-color);
+}
+
+.pin-wrpper:hover .tooltip-pin {
+  display: flex;
 }

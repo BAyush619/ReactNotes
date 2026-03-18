@@ -1,7 +1,7 @@
 :root {
   --bg-color: #202124;
   --text-color: white;
-  --body-color: #282c2e;
+  --body-color: rgb(32 33 36);
   --inputBar-color: rgb(40 42 44);
   --sideBar-color: rgb(65 51 28);
   --tooltip-color: #393d40;
