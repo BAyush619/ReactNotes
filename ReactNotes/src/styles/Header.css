@@ -159,7 +159,7 @@
   position: absolute;
   top: 135%;
   right: -66%;
-  width: 100px;
+  width: 86px;
   height: 23px;
   text-align: center;
   padding: 2px;
@@ -168,10 +168,12 @@
   margin-top: 3px;
   display: none;
   outline: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .hamburger:hover .tooltip {
-  display: block;
+  display: flex;
 }
 
 .tooltip-ReactNotes {
@@ -188,10 +190,12 @@
   margin-top: 3px;
   display: none;
   outline: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .brand:hover .tooltip-ReactNotes {
-  display: block;
+  display: flex;
 }
 
 .tooltip-ListView {
@@ -207,11 +211,13 @@
   border-radius: 3px;
   margin-top: 3px;
   display: none;
+  justify-content: center;
+  align-items: center;
   outline: 0;
 }
 
 .view:hover .tooltip-ListView {
-  display: block;
+  display: flex;
 }
 
 .tooltip-mode {
@@ -227,8 +233,10 @@
   margin-top: 3px;
   display: none;
   outline: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .darklightview:hover .tooltip-mode {
-  display: block;
+  display: flex;
 }

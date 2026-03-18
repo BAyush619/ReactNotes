@@ -1,0 +1,18 @@
+.NotesWrapper {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.InputAccordian {
+  cursor: text;
+  width: 35%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  outline: 1px solid rgb(95 99 104);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
