@@ -13,15 +13,18 @@ function SideBar({ isSideBarOpen }) {
   const noteSectionData = [
     {
       icon: <MdOutlineLightbulb />,
-      title: "Note"
+      title: "Note",
+      path: "/"
     },
     {
       icon: <FaPen />,
-      title: "Edit Labels"
+      title: "Edit Labels",
+      path: "EditLabels"
     },
     {
       icon: <RiDeleteBin6Line />,
-      title: "Bin"
+      title: "Bin",
+      path: "Bin"
     },
   ]
 
