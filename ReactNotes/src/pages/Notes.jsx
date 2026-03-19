@@ -14,8 +14,12 @@ import { BsTypeH2 } from "react-icons/bs";
 import { IoText } from "react-icons/io5";
 
 function Notes() {
-  const [openAccordian, setOpenAccordian] = useState(true);
-  const [openFormattingOptions, setOpenFormattingOptions] = useState(true);
+  const [openAccordian, setOpenAccordian] = useState(false);
+  const [openFormattingOptions, setOpenFormattingOptions] = useState(false);
+  const [txtsize, setTxtSize] = useState("normal");
+  const [txtBold, setTxtBold] = useState(false);
+  const [txtItalic, setTxtItalic] = useState(false);
+  const [txtUnderline, setTxtUnderline] = useState(false);
   const accordionRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -56,6 +60,52 @@ function Notes() {
   }
 
 
+  // function to apply H1
+  function applyH1() {
+    document.execCommand("formatBlock", false, "h1");
+    setTxtSize("h1")
+  }
+  // function to apply H2
+  function applyH2() {
+    document.execCommand("formatBlock", false, "h2");
+    setTxtSize("h2")
+  }
+
+  // function to apply Normal
+  function applyNormal() {
+    document.execCommand("formatBlock", false, "p");
+    setTxtSize("normal")
+  }
+
+  // function to apply bold
+  function applyBold() {
+    document.execCommand("bold");
+    setTxtBold(!txtBold);
+  }
+
+  // function to apply underline
+  function applyItalic() {
+    document.execCommand("italic");
+    setTxtItalic(!txtItalic);
+  }
+  // function to apply underline
+  function applyunderline() {
+    document.execCommand("underline");
+    setTxtUnderline(!txtUnderline);
+  }
+
+  // function remove formate
+  function applyRemoveFormat() {
+    document.execCommand("removeFormat");
+    document.execCommand("formatBlock", false, "p");
+    textareaRef.current.focus();
+  }
+
+
+
+
+
+
   return (
     <>
       <div className="NotesWrapper">
@@ -81,48 +131,83 @@ function Notes() {
 
           <div>
             {
+              // openAccordian &&
+              // <textarea
+              //   placeholder="Take a note...."
+              //   ref={textareaRef}
+              //   onInput={handleInput}
+              //   className="WritingNoteSection">
+
+              // </textarea>
+
               openAccordian &&
-              <textarea
-                placeholder="Take a note...."
+              <div
                 ref={textareaRef}
                 onInput={handleInput}
-                className="WritingNoteSection">
+                contentEditable={true}
+                className="WritingNoteSection editable"
+                data-placeholder="Take a note....."
+              >
 
-              </textarea>
+              </div>
+
             }
           </div>
           <div>
             {
               openFormattingOptions &&
               <div className="formatoptionsMenyWrapper">
-                <div className="formatOptionTextStyles">
-                  <div className="Heading1">
+                <div className="formatOptionTextStyles" >
+                  <div className={`Heading1 ${txtsize === "h1" && "activateH1"}`} onMouseDown={(e) => {
+                    e.preventDefault();
+                    applyH1();
+                  }}>
                     <BsTypeH1 />
                     <span className="tooltip-heading1">Heading 1</span>
                   </div>
-                  <div className="Heading2">
+                  <div className={`Heading2 ${txtsize === "h2" && "activateH2"}`} onMouseDown={(e) => {
+                    e.preventDefault();
+                    applyH2();
+                  }}>
                     <BsTypeH2 />
                     <span className="tooltip-heading2">Heading 2</span>
                   </div>
-                  <div className="normalText">
+                  <div className={`normalText ${txtsize === "normal" && "activateNormal"}`} onMouseDown={(e) => {
+                    e.preventDefault();
+                    applyNormal();
+                  }}>
                     <IoText />
-                    <span className="tooltip-Normal">Normal</span>
+                    <span className="tooltip-Normal" >Normal</span>
                   </div>
                 </div>
                 <div className="formatoptionsTextFormatting">
-                  <div className="Bold">
+                  <div className={`Bold ${txtBold && "activateBold"}`} onMouseDown={(e) => {
+                    e.preventDefault();
+                    applyBold();
+                  }}>
                     <FaBold />
-                    <span className="tooltip-bold">Bold</span>
+                    <span className="tooltip-bold">
+                      Bold
+                    </span>
                   </div>
-                  <div className="Ittlaic">
+                  <div className={`Ittlaic ${txtItalic && "activateItalic"}`} onMouseDown={(e) => {
+                    e.preventDefault();
+                    applyItalic();
+                  }}>
                     <FaItalic />
                     <span className="tooltip-itlaic">Italic</span>
                   </div>
-                  <div className="underline">
+                  <div className={`underline ${txtUnderline && "activateUnderline"}`} onMouseDown={(e) => {
+                    e.preventDefault();
+                    applyunderline();
+                  }}>
                     <FaUnderline />
                     <span className="tooltip-underline">Underline</span>
                   </div>
-                  <div className="clearFormatting">
+                  <div className="clearFormatting" onMouseDown={(e) => {
+                    e.preventDefault()
+                    applyRemoveFormat();
+                  }}>
                     <MdOutlineFormatClear />
                     <span className="tooltip-clearFormat">Clear formatting</span>
                   </div>

@@ -98,6 +98,15 @@
   border: 0;
 }
 
+/* editable content */
+
+.editable:empty::before {
+  content: attr(data-placeholder);
+  color: gray;
+  pointer-events: none;
+}
+
+
 /* note tool bar */
 
 .NotesToolBar {
@@ -412,4 +421,14 @@
 
 .clearFormatting:hover .tooltip-clearFormat {
   display: flex;
+}
+
+/*  */
+.activateH1,
+.activateH2,
+.activateNormal,
+.activateBold,
+.activateUnderline,
+.activateItalic {
+  background-color: var(--tooltip-color);
 }
