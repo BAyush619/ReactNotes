@@ -160,6 +160,7 @@
   width: 142px;
   display: none;
   background-color: var(--tooltip-color);
+  color: white;
   justify-content: center;
   align-items: center;
   height: 25px;
@@ -177,6 +178,7 @@
   width: 142px;
   display: none;
   background-color: var(--tooltip-color);
+  color: white;
   justify-content: center;
   align-items: center;
   height: 25px;
@@ -194,6 +196,7 @@
   width: 66px;
   display: none;
   background-color: var(--tooltip-color);
+  color: white;
   justify-content: center;
   align-items: center;
   height: 25px;
@@ -211,6 +214,7 @@
   width: 66px;
   display: none;
   background-color: var(--tooltip-color);
+  color: white;
   justify-content: center;
   align-items: center;
   height: 25px;
@@ -218,5 +222,194 @@
 }
 
 .tb4:hover .tooltip-redoOption {
+  display: flex;
+}
+
+
+/* formatting options */
+.formatoptionsMenyWrapper {
+  margin-bottom: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  width: 53%;
+  height: 37px;
+}
+
+.formatOptionTextStyles {
+  border-right: 1px solid rgb(52 60 68);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+  cursor: default;
+  position: relative;
+}
+
+.formatOptionTextStyles div {
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.formatOptionTextStyles div:hover {
+  background-color: var(--tooltip-color);
+}
+
+.formatoptionsTextFormatting {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+  cursor: default;
+}
+
+.formatoptionsTextFormatting div {
+  display: flex;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.formatoptionsTextFormatting div:hover {
+  background-color: var(--tooltip-color);
+}
+
+.tooltip-heading1 {
+  position: absolute;
+  top: 31px;
+  right: 62px;
+  width: 85px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.Heading1:hover .tooltip-heading1 {
+  display: flex;
+}
+
+.tooltip-heading2 {
+  position: absolute;
+  top: 31px;
+  right: 17px;
+  width: 85px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.Heading2:hover .tooltip-heading2 {
+  display: flex;
+}
+
+
+.tooltip-Normal {
+  position: absolute;
+  top: 31px;
+  right: -6px;
+  width: 61px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.normalText:hover .tooltip-Normal {
+  display: flex;
+}
+
+/*  */
+.tooltip-bold {
+  position: absolute;
+  top: 31px;
+  right: 120px;
+  width: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.Bold:hover .tooltip-bold {
+  display: flex;
+}
+
+.tooltip-itlaic {
+  position: absolute;
+  top: 31px;
+  right: 79px;
+  width: 50px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.Ittlaic:hover .tooltip-itlaic {
+  display: flex;
+}
+
+.tooltip-underline {
+  position: absolute;
+  top: 31px;
+  right: 23px;
+  width: 80px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.underline:hover .tooltip-underline {
+  display: flex;
+}
+
+.tooltip-clearFormat {
+  position: absolute;
+  top: 31px;
+  right: -39px;
+  width: 126px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  border-radius: 6px;
+  background-color: var(--tooltip-color);
+  z-index: 1;
+}
+
+.clearFormatting:hover .tooltip-clearFormat {
   display: flex;
 }

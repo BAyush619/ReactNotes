@@ -5,9 +5,17 @@ import { MdFormatColorText } from "react-icons/md";
 import { IoMdColorPalette } from "react-icons/io";
 import { BiUndo } from "react-icons/bi";
 import { BiRedo } from "react-icons/bi";
+import { FaBold } from "react-icons/fa";
+import { FaItalic } from "react-icons/fa";
+import { FaUnderline } from "react-icons/fa";
+import { MdOutlineFormatClear } from "react-icons/md";
+import { BsTypeH1 } from "react-icons/bs";
+import { BsTypeH2 } from "react-icons/bs";
+import { IoText } from "react-icons/io5";
 
 function Notes() {
-  const [openAccordian, setOpenAccordian] = useState(false);
+  const [openAccordian, setOpenAccordian] = useState(true);
+  const [openFormattingOptions, setOpenFormattingOptions] = useState(true);
   const accordionRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -23,6 +31,7 @@ function Notes() {
       if (accordionRef.current &&
         !accordionRef.current.contains(event.target)) {
         setOpenAccordian(false);
+        setOpenFormattingOptions(false)
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -43,6 +52,7 @@ function Notes() {
   // handle open close of accordian
   function handleInputCloseButton() {
     setOpenAccordian(false);
+    setOpenFormattingOptions(false)
   }
 
 
@@ -81,14 +91,54 @@ function Notes() {
               </textarea>
             }
           </div>
-          <div >
+          <div>
+            {
+              openFormattingOptions &&
+              <div className="formatoptionsMenyWrapper">
+                <div className="formatOptionTextStyles">
+                  <div className="Heading1">
+                    <BsTypeH1 />
+                    <span className="tooltip-heading1">Heading 1</span>
+                  </div>
+                  <div className="Heading2">
+                    <BsTypeH2 />
+                    <span className="tooltip-heading2">Heading 2</span>
+                  </div>
+                  <div className="normalText">
+                    <IoText />
+                    <span className="tooltip-Normal">Normal</span>
+                  </div>
+                </div>
+                <div className="formatoptionsTextFormatting">
+                  <div className="Bold">
+                    <FaBold />
+                    <span className="tooltip-bold">Bold</span>
+                  </div>
+                  <div className="Ittlaic">
+                    <FaItalic />
+                    <span className="tooltip-itlaic">Italic</span>
+                  </div>
+                  <div className="underline">
+                    <FaUnderline />
+                    <span className="tooltip-underline">Underline</span>
+                  </div>
+                  <div className="clearFormatting">
+                    <MdOutlineFormatClear />
+                    <span className="tooltip-clearFormat">Clear formatting</span>
+                  </div>
+                </div>
+              </div>
+
+            }
+          </div>
+          <div>
             {
               openAccordian &&
               <div className="NotesToolBarWrapper" >
                 <div className="NotesToolBar">
-                  <div className="tb tb1">
+                  <div className="tb tb1" onClick={() => setOpenFormattingOptions(!openFormattingOptions)}>
                     <MdFormatColorText />
-                    <span className="tooltip-formateoption">
+                    <span className="tooltip-formateoption" >
                       Formatting Options
                     </span>
                   </div>
