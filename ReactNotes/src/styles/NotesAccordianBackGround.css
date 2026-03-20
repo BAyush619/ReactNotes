@@ -1,0 +1,40 @@
+.BackGroundColorOptionWrapper {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 30%;
+  position: absolute;
+  top: 120px;
+  right: 498px;
+  height: 27px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+.BackGroundColorOptionWrapper div {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.BackGroundColorOptionWrapper div:hover {
+  outline: 1px solid beige;
+}
+
+.BackGroundColorOptionWrapper div button {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: var(--body-color);
+}
+
+.defaultBackgroundlogo {
+  color: var(--text-color);
+}
+
+.activateThisColor {
+  border: 2px solid rgb(161 66 244);
+}

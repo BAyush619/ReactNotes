@@ -1,5 +1,5 @@
 .NotesWrapper {
-  /* min-height: 8vh; */
+  position: relative;
 }
 
 .InputAccordian {
@@ -174,6 +174,7 @@
   align-items: center;
   height: 25px;
   border-radius: 6px;
+  z-index: 1;
 }
 
 .tb1:hover .tooltip-formateoption {
@@ -192,6 +193,7 @@
   align-items: center;
   height: 25px;
   border-radius: 6px;
+  z-index: 1;
 }
 
 .tb2:hover .tooltip-backgroundoption {
@@ -210,6 +212,7 @@
   align-items: center;
   height: 25px;
   border-radius: 6px;
+  z-index: 1;
 }
 
 .tb3:hover .tooltip-undoOption {
@@ -228,6 +231,7 @@
   align-items: center;
   height: 25px;
   border-radius: 6px;
+  z-index: 1;
 }
 
 .tb4:hover .tooltip-redoOption {

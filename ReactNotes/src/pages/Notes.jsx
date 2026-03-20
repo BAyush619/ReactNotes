@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import "../styles/pagesStyle/Notes.css"
 import { BsPin } from "react-icons/bs";
 import { MdFormatColorText } from "react-icons/md";
@@ -12,16 +12,23 @@ import { MdOutlineFormatClear } from "react-icons/md";
 import { BsTypeH1 } from "react-icons/bs";
 import { BsTypeH2 } from "react-icons/bs";
 import { IoText } from "react-icons/io5";
+import NotesAccordianBackGround from "../components/NotesAccordianBackGround";
 
 function Notes() {
-  const [openAccordian, setOpenAccordian] = useState(false);
+  const [openAccordian, setOpenAccordian] = useState(true);
   const [openFormattingOptions, setOpenFormattingOptions] = useState(false);
+  const [openBackgroundOption, setOpenBackgroundOption] = useState(true);
   const [txtsize, setTxtSize] = useState("normal");
   const [txtBold, setTxtBold] = useState(false);
   const [txtItalic, setTxtItalic] = useState(false);
   const [txtUnderline, setTxtUnderline] = useState(false);
+  const [selectBackgroundColor, setSelectBackgroundColor] = useState("default");
   const accordionRef = useRef(null);
+  const backgroundRef = useRef(null);
   const textareaRef = useRef(null);
+
+  console.log(selectBackgroundColor);
+
 
   const handleInput = () => {
     const ele = textareaRef.current;
@@ -32,8 +39,9 @@ function Notes() {
   // handles accordian open close state if click outside closes accordian
   useEffect(() => {
     function handleClickOutside(event) {
-      if (accordionRef.current &&
-        !accordionRef.current.contains(event.target)) {
+      const clickedoutsideAccordian = !accordionRef.current?.contains(event.target);
+      const clickedoutsideBackground = !backgroundRef.current?.contains(event.target);
+      if (clickedoutsideAccordian && clickedoutsideBackground) {
         setOpenAccordian(false);
         setOpenFormattingOptions(false)
       }
@@ -103,20 +111,18 @@ function Notes() {
 
 
 
-
-
-
   return (
     <>
-      <div className="NotesWrapper">
+      <div className="NotesWrapper" >
         <div className={`InputAccordian ${openAccordian ? "opneAccordian" : ""}`}
+          style={{ backgroundColor: `${selectBackgroundColor}` }}
           ref={accordionRef}
           onClick={() => setOpenAccordian(true)}>
           {
             openAccordian ?
-              <div className="tile-inputWrapper">
+              <div className="tile-inputWrapper" >
                 <div>
-                  <input type="text" className="NotesTitle" placeholder="Title" />
+                  <input type="text" className="NotesTitle" placeholder="Title" style={{ backgroundColor: `${selectBackgroundColor}` }} />
                 </div>
                 <div className="pin-wrpper">
                   <BsPin />
@@ -147,6 +153,7 @@ function Notes() {
                 contentEditable={true}
                 className="WritingNoteSection editable"
                 data-placeholder="Take a note....."
+                style={{ backgroundColor: `${selectBackgroundColor}` }}
               >
 
               </div>
@@ -216,6 +223,9 @@ function Notes() {
 
             }
           </div>
+
+
+
           <div>
             {
               openAccordian &&
@@ -228,7 +238,9 @@ function Notes() {
                     </span>
                   </div>
 
-                  <div className="tb tb2">
+                  <div className="tb tb2" onClick={() => {
+                    setOpenBackgroundOption(!openBackgroundOption);
+                  }}>
                     <IoMdColorPalette />
                     <span className="tooltip-backgroundoption">
                       Background Options
@@ -254,13 +266,26 @@ function Notes() {
                   <button className="NotesToolBarBtn" onClick={(e) => {
                     e.stopPropagation();
                     handleInputCloseButton();
-                  }}>close</button>
+                  }}
+                    style={{ backgroundColor: `${selectBackgroundColor}` }}
+                  >close</button>
                 </div>
               </div>
             }
+
           </div>
         </div>
+        <div>
+          {
+            openAccordian && openBackgroundOption &&
+            <div ref={backgroundRef}>
+              <NotesAccordianBackGround setSelectBackgroundColor={setSelectBackgroundColor}></NotesAccordianBackGround>
+            </div>
+          }
+        </div>
       </div>
+
+
     </>
   )
 }
