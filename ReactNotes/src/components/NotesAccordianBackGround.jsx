@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/NotesAccordianBackGround.css"
 import { PiDropSlash } from "react-icons/pi";
 
 function NotesAccordianBackGround({ setSelectBackgroundColor }) {
   const [currentSelectedColor, setCurrentSelectedColor] = useState("default");
+  const [currentMode, setCurrentMode] = useState(localStorage.getItem("theme"));
   return (
     <>
       <div className="BackGroundColorOptionWrapper">
         <div className={`${currentSelectedColor === "default" && "activateThisColor"}`}
           onClick={() => {
             setCurrentSelectedColor("default");
-            setSelectBackgroundColor("#202124");
+            setSelectBackgroundColor(currentMode === "dark" ? "#202124" : "white");
           }}
         >
           <button>

@@ -18,6 +18,7 @@ function App() {
       <SideBar isSideBarOpen={isSideBarOpen}></SideBar>
       <div className='outlet'>
         <Outlet></Outlet>
+
       </div>
     </>
   )

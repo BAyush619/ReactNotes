@@ -6,3 +6,9 @@
   padding: 30px;
   margin-top: -10px;
 }
+
+.cardWrapper {
+  height: 95%;
+  margin-top: 20px;
+  padding: 20px;
+}
