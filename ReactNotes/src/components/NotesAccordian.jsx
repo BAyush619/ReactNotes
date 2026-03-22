@@ -1,5 +1,5 @@
 import "../styles/NotesAccordian.css";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsPin } from "react-icons/bs";
 import { MdFormatColorText } from "react-icons/md";
 import { IoMdColorPalette } from "react-icons/io";
@@ -14,7 +14,7 @@ import { BsTypeH2 } from "react-icons/bs";
 import { IoText } from "react-icons/io5";
 import NotesAccordianBackGround from "../components/NotesAccordianBackGround";
 
-function NotesAccordian() {
+function NotesAccordian({ setTakeInputData }) {
 
   const [openAccordian, setOpenAccordian] = useState(false);
   const [openFormattingOptions, setOpenFormattingOptions] = useState(false);
@@ -28,7 +28,6 @@ function NotesAccordian() {
   const backgroundRef = useRef(null);
   const textareaRef = useRef(null);
 
-  console.log(selectBackgroundColor);
 
 
   const handleInput = () => {
@@ -62,10 +61,12 @@ function NotesAccordian() {
     }
   }, [openAccordian])
 
+
+
   // handle open close of accordian
   function handleInputCloseButton() {
     setOpenAccordian(false);
-    setOpenFormattingOptions(false)
+    setOpenFormattingOptions(false);
   }
 
 
@@ -92,7 +93,7 @@ function NotesAccordian() {
     setTxtBold(!txtBold);
   }
 
-  // function to apply underline
+  // function to apply Italic
   function applyItalic() {
     document.execCommand("italic");
     setTxtItalic(!txtItalic);
@@ -109,17 +110,46 @@ function NotesAccordian() {
     document.execCommand("formatBlock", false, "p");
     textareaRef.current.focus();
   }
+
+  const [inputNotesEntry, setInputNotesEntry] = useState("");
+
+  const handleSettingTheNotesValue = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      setTakeInputData(prev => [
+        ...prev,
+        {
+          title: inputNotesEntry,
+          description: textareaRef.current.innerHTML,
+        }
+      ]);
+      setInputNotesEntry("");
+      textareaRef.current.innerHTML = "";
+    }
+
+  }
+
   return (
     <>
       <div className={`InputAccordian ${openAccordian ? "opneAccordian" : ""}`}
         style={{ backgroundColor: `${selectBackgroundColor}` }}
         ref={accordionRef}
+        onKeyDown={handleSettingTheNotesValue}
         onClick={() => setOpenAccordian(true)}>
         {
           openAccordian ?
             <div className="tile-inputWrapper" >
               <div>
-                <input type="text" className="NotesTitle" placeholder="Title" style={{ backgroundColor: `${selectBackgroundColor}` }} />
+
+
+
+                <input
+                  value={inputNotesEntry}
+                  onChange={(event) => setInputNotesEntry(event.target.value)}
+                  type="text" className="NotesTitle" placeholder="Title" style={{ backgroundColor: `${selectBackgroundColor}` }} />
+
+
+
               </div>
               <div className="pin-wrpper">
                 <BsPin />

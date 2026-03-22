@@ -10,8 +10,6 @@ function DisplayNoteCard({ noteItem }) {
         <div className="NoteDiscription">
           {noteItem.description}
         </div>
-
-        ascsdvs
       </div>
     </>
   )
