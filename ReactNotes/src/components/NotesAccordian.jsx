@@ -43,7 +43,8 @@ function NotesAccordian({ setTakeInputData }) {
       const clickedoutsideBackground = !backgroundRef.current?.contains(event.target);
       if (clickedoutsideAccordian && clickedoutsideBackground) {
         setOpenAccordian(false);
-        setOpenFormattingOptions(false)
+        setOpenFormattingOptions(false);
+        setOpenBackgroundOption(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -67,6 +68,7 @@ function NotesAccordian({ setTakeInputData }) {
   function handleInputCloseButton() {
     setOpenAccordian(false);
     setOpenFormattingOptions(false);
+    setOpenBackgroundOption(false);
   }
 
 
