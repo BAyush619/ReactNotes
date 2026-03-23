@@ -6,6 +6,8 @@ import SideBar from './components/SideBar'
 import { Outlet } from 'react-router-dom';
 
 function App() {
+
+  const [myView, setMyview] = useState(true); // true => grid view ans false => list view
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 
   function toggleSideBar() {
@@ -14,10 +16,10 @@ function App() {
 
   return (
     <>
-      <Header toggleSideBar={toggleSideBar}></Header>
+      <Header toggleSideBar={toggleSideBar} myView={myView} setMyview={setMyview}></Header>
       <SideBar isSideBarOpen={isSideBarOpen}></SideBar>
       <div className='outlet'>
-        <Outlet></Outlet>
+        <Outlet context={{ myView }}></Outlet>
 
       </div>
     </>

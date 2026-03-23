@@ -4,13 +4,16 @@ import { FaSearch } from "react-icons/fa";
 import { CiGrid2H } from "react-icons/ci";
 import { FiSun } from "react-icons/fi";
 import { FiMoon } from "react-icons/fi";
+import { CiGrid41 } from "react-icons/ci";
 
 import "../styles/Header.css"
 import useTheme from "../customHook/UseTheme";
+import { useState } from "react";
 
 
-function Header({ toggleSideBar }) {
+function Header({ toggleSideBar, setMyview, myView }) {
   const { theme, toggleTheme } = useTheme();
+
   return (
     <>
       <div className="headerWrapper">
@@ -37,9 +40,16 @@ function Header({ toggleSideBar }) {
           </div>
         </div>
         <div className="action-bar">
-          <div className="view">
-            <CiGrid2H className="gridIcon" />
-            <span className="tooltip-ListView">List View</span>
+          <div className="view" onClick={() => { setMyview(!myView) }}>
+            {
+              myView ? <CiGrid41 className="gridIcon" /> : <CiGrid2H className="gridIcon" />
+            }
+
+            <span className="tooltip-ListView">
+              {
+                myView ? <div>Grid View </div> : <div>List View</div>
+              }
+            </span>
           </div>
           <div className="darklightview" onClick={toggleTheme}>
 

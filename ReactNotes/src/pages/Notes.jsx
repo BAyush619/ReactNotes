@@ -3,6 +3,7 @@ import { useState } from 'react';
 import DisplayNoteCard from '../components/DisplayNoteCard';
 import NotesAccordian from "../components/NotesAccordian";
 import "../styles/pagesStyle/Notes.css"
+import { useOutletContext } from "react-router-dom";
 
 function Notes() {
 
@@ -26,7 +27,7 @@ function Notes() {
   ]
 
   const [takeInputData, setTakeInputData] = useState(MyNotesList);
-  console.log();
+  const { myView } = useOutletContext();
 
   return (
     <>
@@ -35,7 +36,7 @@ function Notes() {
 
       </div>
       <div className="cardWrapper">
-        <div className='displayMethodOfNotes'>
+        <div className={`displayMethodOfNotes ${myView ? "gridView" : "listView"}`}>
 
           {
             takeInputData.map((noteItem, index) => {

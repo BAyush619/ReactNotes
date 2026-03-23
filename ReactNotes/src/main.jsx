@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Notes></Notes>
+        element: <Notes ></Notes>
       },
       {
         path: "EditLabels",
