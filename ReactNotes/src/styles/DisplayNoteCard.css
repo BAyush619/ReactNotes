@@ -25,6 +25,11 @@
   right: 8px;
   font-size: 20px;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
 .cardActionWrapper {
@@ -32,24 +37,50 @@
   bottom: 11px;
   left: 14px;
   display: none;
+
+
   width: 60px;
   justify-content: space-around;
   align-items: center;
   font-size: 15px;
 }
 
-.cardArchiveWrapper {
-  cursor: pointer;
-}
 
-.cardDeleteWrapper {
-  cursor: pointer;
-}
 
 .DisplayNoteCardWrapper:hover .cardPinWrapper {
-  display: block;
+  display: flex;
+}
+
+.cardPinWrapper:hover {
+  background-color: var(--tooltip-color);
+
 }
 
 .DisplayNoteCardWrapper:hover .cardActionWrapper {
   display: flex;
+}
+
+.cardArchiveWrapper {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.cardDeleteWrapper {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.cardArchiveWrapper:hover,
+.cardDeleteWrapper:hover {
+  background-color: var(--tooltip-color);
 }

@@ -28,3 +28,10 @@
   justify-content: flex-start;
   flex-wrap: nowrap;
 }
+
+.pinnedWrapper {
+  min-height: 15%;
+  width: 100%;
+  height: fit-content;
+  outline: 1px solid beige;
+}

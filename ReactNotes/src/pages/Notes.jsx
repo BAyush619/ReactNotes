@@ -27,6 +27,9 @@ function Notes() {
   ]
 
   const [takeInputData, setTakeInputData] = useState(MyNotesList);
+  const [pinned, setPinned] = useState([]);
+  // next work on displaying pinned notes also handle if clicked on pin again
+
   const { myView } = useOutletContext();
 
   return (
@@ -41,9 +44,15 @@ function Notes() {
           {
             takeInputData.map((noteItem, index) => {
 
-              return <DisplayNoteCard key={index} noteItem={noteItem}></DisplayNoteCard>
+              return <DisplayNoteCard
+                key={index}
+                index={index} //fopr deleting which notes
+                noteItem={noteItem}
+                setTakeInputData={setTakeInputData}
+                takeInputData={takeInputData}
+                setPinned={setPinned}
+              ></DisplayNoteCard>
             })
-
           }
         </div>
 
