@@ -9,10 +9,47 @@
   outline: 1px solid rgb(95 99 104);
   border-radius: 10px;
   margin: 10px;
+  position: relative;
 }
 
 .MyNoteTitle {
   margin-bottom: 20px;
   color: var(--text-color);
   font-size: 1.5rem;
+}
+
+.cardPinWrapper {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cardActionWrapper {
+  position: absolute;
+  bottom: 11px;
+  left: 14px;
+  display: none;
+  width: 60px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 15px;
+}
+
+.cardArchiveWrapper {
+  cursor: pointer;
+}
+
+.cardDeleteWrapper {
+  cursor: pointer;
+}
+
+.DisplayNoteCardWrapper:hover .cardPinWrapper {
+  display: block;
+}
+
+.DisplayNoteCardWrapper:hover .cardActionWrapper {
+  display: flex;
 }
