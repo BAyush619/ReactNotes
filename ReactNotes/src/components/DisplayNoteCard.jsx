@@ -5,7 +5,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
 
 
-function DisplayNoteCard({ noteItem, setTakeInputData, index, takeInputData, setPinned }) {
+function DisplayNoteCard({ noteItem, setTakeInputData, index, takeInputData }) {
 
   const [deletedNotesArr, setDeletedNotesArr] = useState([]);
 
@@ -21,10 +21,15 @@ function DisplayNoteCard({ noteItem, setTakeInputData, index, takeInputData, set
   // console.log(deletedNotesArr) <= this is deleted notes array for my bin page
 
   function handlePinButton() {
-    setTakeInputData(takeInputData.filter((_, i) => i !== index))
-    setPinned((prev) => [...prev, noteItem])
-
+    const updatedNotes = takeInputData.map((note, i) => {
+      if (i == index) {
+        return { ...note, isPinned: !note.isPinned };
+      }
+      return note;
+    })
+    setTakeInputData(updatedNotes);
   }
+
   return (
     <>
       <div className="DisplayNoteCardWrapper">

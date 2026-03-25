@@ -35,3 +35,8 @@
   height: fit-content;
   outline: 1px solid beige;
 }
+
+.DisplaypinnedNotesWrapper {
+  border: 1px solid beige;
+  height: auto;
+}
