@@ -25,9 +25,13 @@ function BinDeletedNotesCard({ deletedNotesArrItem, setDeletedNotesArr, deletedN
         <div className="BinActionWrapper">
           <div className="deleteForever" onClick={() => handleRemoveForever()}>
             <MdDeleteForever />
+
+            <span className="deleteforever-tool-tip">Delete forever</span>
           </div>
           <div className="restoreNotes" onClick={() => handleRestreNote()}>
             <FaTrashRestore />
+
+            <span className="restore-tool-tip">Restore</span>
           </div>
         </div>
 

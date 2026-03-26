@@ -38,6 +38,8 @@ function App() {
     },
   ]);
   const [deletedNotesArr, setDeletedNotesArr] = useState([]);
+  const [archivedNotes, setArchivedNotes] = useState([]);
+
 
   function toggleSideBar() {
     setIsSideBarOpen(prev => !prev);
@@ -53,7 +55,9 @@ function App() {
           deletedNotesArr,
           setDeletedNotesArr,
           takeInputData,
-          setTakeInputData
+          setTakeInputData,
+          archivedNotes,
+          setArchivedNotes
         }}></Outlet>
 
       </div>

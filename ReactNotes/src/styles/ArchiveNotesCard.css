@@ -1,0 +1,65 @@
+.archiveNotesWrapper {
+  width: 29%;
+  min-height: 15%;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  outline: 1px solid rgb(95 99 104);
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+
+.archiveNotesTitle {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.unarchive {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.unarchive:hover {
+  background-color: var(--tooltip-color);
+
+}
+
+.unarchive:hover .unarchiveTool-tip {
+  display: block;
+}
+
+.unarchiveTool-tip {
+  display: none;
+  position: absolute;
+  top: 39px;
+  right: -20px;
+  width: 80px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: var(--tooltip-color);
+}
+
+.archiveActionWrapper {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 20%;
+}
+
+.archiveNotesWrapper:hover .archiveActionWrapper {
+  display: flex;
+}

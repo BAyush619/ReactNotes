@@ -1,6 +1,7 @@
 import { MdOutlineLightbulb } from "react-icons/md";
 import { FaPen } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { RiInboxArchiveLine } from "react-icons/ri";
 
 import NoteSection from "./NoteSection";
 import "../styles/SideBar.css"
@@ -17,9 +18,9 @@ function SideBar({ isSideBarOpen }) {
       path: "/"
     },
     {
-      icon: <FaPen />,
-      title: "Edit Labels",
-      path: "EditLabels"
+      icon: <RiInboxArchiveLine />,
+      title: "Archive",
+      path: "Archive"
     },
     {
       icon: <RiDeleteBin6Line />,

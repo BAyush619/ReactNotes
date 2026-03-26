@@ -1,14 +1,4 @@
-.BinWrapper {
-  width: 100%;
-  height: 80vh;
-  padding: 20px;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.showEmptyBinWrapper {
+.showEmptyArchiveWrapper {
   height: 85vh;
   width: 80vw;
   display: flex;
@@ -17,7 +7,7 @@
   flex-direction: column;
 }
 
-.binLogoContainer {
+.archiveLogoContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +16,7 @@
   color: rgb(55 56 58);
 }
 
-.binMessageContainer {
+.messageContainer {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -37,8 +37,6 @@
   bottom: 11px;
   left: 14px;
   display: none;
-
-
   width: 60px;
   justify-content: space-around;
   align-items: center;
@@ -68,6 +66,7 @@
   align-items: center;
   cursor: pointer;
   border-radius: 50%;
+  position: relative;
 }
 
 .cardDeleteWrapper {
@@ -87,4 +86,36 @@
 
 .DisplayNoteCardWrapper {
   min-height: 100px;
+}
+
+.archive-tool-tip {
+  display: none;
+  position: absolute;
+  top: 37px;
+  right: -9px;
+  width: 57px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: var(--tooltip-color);
+  color: white;
+}
+
+.cardArchiveWrapper:hover .archive-tool-tip {
+  display: block;
+}
+
+.delete-tool-tip {
+  display: none;
+  position: absolute;
+  top: 37px;
+  right: -15px;
+  width: 57px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: var(--tooltip-color);
+  color: white;
+}
+
+.cardDeleteWrapper:hover .delete-tool-tip {
+  display: block;
 }

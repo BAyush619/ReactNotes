@@ -29,16 +29,50 @@
 }
 
 .BinActionWrapper {
-  display: none;
+  /* display: none; */
+  display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: space-around;
   position: absolute;
   bottom: 6px;
   left: 8px;
   width: 20%;
-
 }
 
 .deletedNotesWrapper:hover .BinActionWrapper {
   display: flex;
+
+}
+
+.deleteforever-tool-tip {
+  display: none;
+  position: absolute;
+  top: 37px;
+  right: 10px;
+  font-size: 16px;
+  width: 106px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--tooltip-color);
+}
+
+.deleteForever:hover .deleteforever-tool-tip {
+  display: block;
+}
+
+.restore-tool-tip {
+  display: none;
+  position: absolute;
+  top: 37px;
+  right: -21px;
+  font-size: 16px;
+  width: 77px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--tooltip-color);
+}
+
+.restoreNotes:hover .restore-tool-tip {
+  display: block;
 }

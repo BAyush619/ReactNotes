@@ -5,7 +5,7 @@ import App from './App.jsx'
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from 'react-router-dom';
 import Notes from "./pages/Notes.jsx"
-import EditLabels from "./pages/EditLabels.jsx"
+import Archive from "./pages/Archive.jsx"
 import Bin from "./pages/Bin.jsx"
 
 
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element: <Notes ></Notes>
       },
       {
-        path: "EditLabels",
-        element: <EditLabels></EditLabels>
+        path: "Archive",
+        element: <Archive></Archive>
       },
       {
         path: "Bin",

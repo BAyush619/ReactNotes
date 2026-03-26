@@ -5,7 +5,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
 
 
-function DisplayNoteCard({ noteItem, setTakeInputData, takeInputData, setDeletedNotesArr }) {
+function DisplayNoteCard({ noteItem, setTakeInputData, takeInputData, setDeletedNotesArr, archivedNotes, setArchivedNotes }) {
 
 
 
@@ -17,7 +17,11 @@ function DisplayNoteCard({ noteItem, setTakeInputData, takeInputData, setDeleted
 
     )))
   }
-
+  function handleArchiveNotes() {
+    //remove from setInputData and add to setArchived notes
+    setTakeInputData(takeInputData.filter((note) => note.id != noteItem.id));
+    setArchivedNotes((prev) => [...prev, noteItem]);
+  }
   function handlePinButton() {
     const updatedNotes = takeInputData.map((note) => {
       if (note.id === noteItem.id) {
@@ -41,14 +45,15 @@ function DisplayNoteCard({ noteItem, setTakeInputData, takeInputData, setDeleted
           <RiPushpin2Line />
         </div>
         <div className="cardActionWrapper">
-          <div className="cardArchiveWrapper">
+          <div className="cardArchiveWrapper" onClick={() => handleArchiveNotes()}>
             <MdArchive />
+            <span className="archive-tool-tip">Archive</span>
           </div>
           <div className="cardDeleteWrapper" onClick={() => {
             handleNotesDeleteButton()
           }}>
             <MdDeleteForever />
-            {/* delete option */}
+            <span className="delete-tool-tip">Delete</span>
           </div>
         </div>
       </div>

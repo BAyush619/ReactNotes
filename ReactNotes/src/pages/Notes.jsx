@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import DisplayNoteCard from '../components/DisplayNoteCard';
 import NotesAccordian from "../components/NotesAccordian";
+import { BiBulb } from "react-icons/bi";
 import "../styles/pagesStyle/Notes.css"
 import { useOutletContext } from "react-router-dom";
 
 function Notes() {
-  const { setDeletedNotesArr, myView, takeInputData, setTakeInputData } = useOutletContext();
+  const { setDeletedNotesArr, myView, takeInputData, setTakeInputData, archivedNotes, setArchivedNotes } = useOutletContext();
 
 
 
@@ -16,6 +17,18 @@ function Notes() {
 
   return (
     <>
+      {
+        pinnedNotes.length === 0 && unPinnedNotes.length === 0
+        &&
+        <div className="showEmptyNotesWrapper">
+          <div className="notesLogoContainer">
+            <BiBulb />
+          </div>
+          <div className="notesmessageContainer">
+            Notes that you add appear here
+          </div>
+        </div>
+      }
       <div className="NotesWrapper" >
         <NotesAccordian setTakeInputData={setTakeInputData}></NotesAccordian>
 
@@ -35,6 +48,9 @@ function Notes() {
                       setTakeInputData={setTakeInputData}
                       takeInputData={takeInputData}
                       setDeletedNotesArr={setDeletedNotesArr}
+                      archivedNotes={archivedNotes}
+                      setArchivedNotes={setArchivedNotes}
+
                     />
                   ))}
                 </div>
@@ -53,6 +69,8 @@ function Notes() {
                 setTakeInputData={setTakeInputData}
                 takeInputData={takeInputData}
                 setDeletedNotesArr={setDeletedNotesArr}
+                archivedNotes={archivedNotes}
+                setArchivedNotes={setArchivedNotes}
               ></DisplayNoteCard>
             })
           }

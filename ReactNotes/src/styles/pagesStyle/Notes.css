@@ -38,3 +38,30 @@
 .DisplaypinnedNotesWrapper {
   height: 150px;
 }
+
+
+.showEmptyNotesWrapper {
+  height: 85vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.notesLogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgb(55 56 58);
+}
+
+.notesmessageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: rgb(154 160 166);
+}
