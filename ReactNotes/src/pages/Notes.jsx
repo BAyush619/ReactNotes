@@ -6,39 +6,14 @@ import "../styles/pagesStyle/Notes.css"
 import { useOutletContext } from "react-router-dom";
 
 function Notes() {
-
-  const MyNotesList = [
-    {
-      title: "Reactjs",
-      description: "My ReactNotes App",
-      isPinned: false
-    },
-    {
-      title: "javaScript",
-      description: "this is js notes",
-      isPinned: false
-    },
-    {
-      title: "Html",
-      description: "html stands for hyper text markup language",
-      isPinned: false
-    },
-    {
-      title: "CSS",
-      description: "css stands for cascading style sheet",
-      isPinned: false
-    },
-  ]
-
-  const [takeInputData, setTakeInputData] = useState(MyNotesList);
+  const { setDeletedNotesArr, myView, takeInputData, setTakeInputData } = useOutletContext();
 
 
-  const { myView } = useOutletContext();
+
 
   const pinnedNotes = takeInputData.filter(note => note.isPinned);
   const unPinnedNotes = takeInputData.filter(note => !note.isPinned);
 
-  console.log(pinnedNotes)
   return (
     <>
       <div className="NotesWrapper" >
@@ -46,32 +21,38 @@ function Notes() {
 
       </div>
       <div className="cardWrapper">
-        {/* <div className="DisplaypinnedNotesWrapper">
-          <div>Pinned</div>
-         
+        <div className={`${pinnedNotes.length > 0 ? "DisplaypinnedNotesWrapper" : ""}`} style={{ marginBottom: "50px" }}>
           {
-            pinned.length > 0 && pinned.map((noteItem, index) => {
-              return <DisplayNoteCard
-                noteItem={noteItem}
-                setTakeInputData={setTakeInputData}
-                takeInputData={takeInputData}
-                index={index}
-                setPinned={setPinned}
-              ></DisplayNoteCard>
-            })
+            pinnedNotes.length > 0 && (
+              <div className="DisplaypinnedNotesWrapper">
+                <div className="sectionTitle">Pinned</div>
+
+                <div className={`displayMethodOfNotes ${myView ? "gridView" : "listView"}`}>
+                  {pinnedNotes.map((noteItem) => (
+                    <DisplayNoteCard
+                      key={noteItem.id}
+                      noteItem={noteItem}
+                      setTakeInputData={setTakeInputData}
+                      takeInputData={takeInputData}
+                      setDeletedNotesArr={setDeletedNotesArr}
+                    />
+                  ))}
+                </div>
+              </div>
+            )
           }
-        </div> */}
+        </div>
         <div className={`displayMethodOfNotes ${myView ? "gridView" : "listView"}`}>
 
           {
             unPinnedNotes.map((noteItem, index) => {
 
               return <DisplayNoteCard
-                key={index}
-                index={index} //fopr deleting which notes
+                key={noteItem.id}
                 noteItem={noteItem}
                 setTakeInputData={setTakeInputData}
                 takeInputData={takeInputData}
+                setDeletedNotesArr={setDeletedNotesArr}
               ></DisplayNoteCard>
             })
           }

@@ -10,6 +10,35 @@ function App() {
   const [myView, setMyview] = useState(true); // true => grid view ans false => list view
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 
+
+  const [takeInputData, setTakeInputData] = useState([
+    {
+      title: "Reactjs",
+      description: "My ReactNotes App",
+      isPinned: false,
+      id: Date.now() + Math.random()
+    },
+    {
+      title: "javaScript",
+      description: "this is js notes",
+      isPinned: false,
+      id: Date.now() + Math.random()
+    },
+    {
+      title: "Html",
+      description: "html stands for hyper text markup language",
+      isPinned: false,
+      id: Date.now() + Math.random()
+    },
+    {
+      title: "CSS",
+      description: "css stands for cascading style sheet",
+      isPinned: false,
+      id: Date.now() + Math.random()
+    },
+  ]);
+  const [deletedNotesArr, setDeletedNotesArr] = useState([]);
+
   function toggleSideBar() {
     setIsSideBarOpen(prev => !prev);
   }
@@ -19,7 +48,13 @@ function App() {
       <Header toggleSideBar={toggleSideBar} myView={myView} setMyview={setMyview}></Header>
       <SideBar isSideBarOpen={isSideBarOpen}></SideBar>
       <div className='outlet'>
-        <Outlet context={{ myView }}></Outlet>
+        <Outlet context={{
+          myView,
+          deletedNotesArr,
+          setDeletedNotesArr,
+          takeInputData,
+          setTakeInputData
+        }}></Outlet>
 
       </div>
     </>

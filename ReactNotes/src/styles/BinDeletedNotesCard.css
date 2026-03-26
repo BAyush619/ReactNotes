@@ -1,0 +1,44 @@
+.deletedNotesWrapper {
+  width: 29%;
+  min-height: 15%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  outline: 1px solid rgb(95 99 104);
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+
+.deletedNotesTitle {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.restoreNotes {
+  cursor: pointer;
+}
+
+.deleteForever {
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.BinActionWrapper {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  width: 20%;
+
+}
+
+.deletedNotesWrapper:hover .BinActionWrapper {
+  display: flex;
+}

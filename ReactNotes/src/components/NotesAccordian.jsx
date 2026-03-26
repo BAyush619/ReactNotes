@@ -123,6 +123,8 @@ function NotesAccordian({ setTakeInputData }) {
         {
           title: inputNotesEntry,
           description: textareaRef.current.innerHTML,
+          isPinned: false,
+          id: Date.now(),
         }
       ]);
       setInputNotesEntry("");

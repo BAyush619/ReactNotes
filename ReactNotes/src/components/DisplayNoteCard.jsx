@@ -5,24 +5,22 @@ import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
 
 
-function DisplayNoteCard({ noteItem, setTakeInputData, index, takeInputData }) {
+function DisplayNoteCard({ noteItem, setTakeInputData, takeInputData, setDeletedNotesArr }) {
 
-  const [deletedNotesArr, setDeletedNotesArr] = useState([]);
 
 
   function handleNotesDeleteButton() {
     setDeletedNotesArr((prev) => [...prev, noteItem])
     setTakeInputData((prevNotes => (
 
-      prevNotes.filter((_, i) => i !== index)
+      prevNotes.filter((note) => note.id !== noteItem.id)
 
     )))
   }
-  // console.log(deletedNotesArr) <= this is deleted notes array for my bin page
 
   function handlePinButton() {
-    const updatedNotes = takeInputData.map((note, i) => {
-      if (i == index) {
+    const updatedNotes = takeInputData.map((note) => {
+      if (note.id === noteItem.id) {
         return { ...note, isPinned: !note.isPinned };
       }
       return note;
@@ -32,7 +30,7 @@ function DisplayNoteCard({ noteItem, setTakeInputData, index, takeInputData }) {
 
   return (
     <>
-      <div className="DisplayNoteCardWrapper">
+      <div className={`DisplayNoteCardWrapper ${!noteItem.isPinned ? "DisplaypinnedNotesWrapper" : ""}`}>
         <div className="MyNoteTitle">
           {noteItem.title}
         </div>
@@ -43,7 +41,7 @@ function DisplayNoteCard({ noteItem, setTakeInputData, index, takeInputData }) {
           <RiPushpin2Line />
         </div>
         <div className="cardActionWrapper">
-          <div className="cardArchiveWrapper" onClick={() => handleNotesArchivedButton()}>
+          <div className="cardArchiveWrapper">
             <MdArchive />
           </div>
           <div className="cardDeleteWrapper" onClick={() => {

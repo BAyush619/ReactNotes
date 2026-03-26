@@ -84,3 +84,7 @@
 .cardDeleteWrapper:hover {
   background-color: var(--tooltip-color);
 }
+
+.DisplayNoteCardWrapper {
+  min-height: 100px;
+}
