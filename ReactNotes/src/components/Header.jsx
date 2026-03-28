@@ -11,8 +11,9 @@ import useTheme from "../customHook/UseTheme";
 import { useState } from "react";
 
 
-function Header({ toggleSideBar, setMyview, myView }) {
+function Header({ toggleSideBar, setMyview, myView, setSearchQuery }) {
   const { theme, toggleTheme } = useTheme();
+
 
   return (
     <>
@@ -36,7 +37,7 @@ function Header({ toggleSideBar, setMyview, myView }) {
               <FaSearch className="MysearchIcon" />
             </div>
 
-            <input type="text" className="inputBar" placeholder="Search" />
+            <input type="text" className="inputBar" placeholder="Search" onChange={(event) => setSearchQuery(event.target.value)} />
           </div>
         </div>
         <div className="action-bar">

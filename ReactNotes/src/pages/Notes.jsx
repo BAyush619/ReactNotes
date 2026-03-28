@@ -7,13 +7,14 @@ import "../styles/pagesStyle/Notes.css"
 import { useOutletContext } from "react-router-dom";
 
 function Notes() {
-  const { setDeletedNotesArr, myView, takeInputData, setTakeInputData, archivedNotes, setArchivedNotes } = useOutletContext();
+  const { setDeletedNotesArr, myView, takeInputData, setTakeInputData, archivedNotes, setArchivedNotes, searchQuery } = useOutletContext();
 
 
+  const filteredNotes = takeInputData.filter((note) => note.title.toLowerCase().includes(searchQuery.toLowerCase()) || note.description.toLowerCase().includes(searchQuery.toLowerCase()));
 
 
-  const pinnedNotes = takeInputData.filter(note => note.isPinned);
-  const unPinnedNotes = takeInputData.filter(note => !note.isPinned);
+  const pinnedNotes = filteredNotes.filter(note => note.isPinned);
+  const unPinnedNotes = filteredNotes.filter(note => !note.isPinned);
 
   return (
     <>

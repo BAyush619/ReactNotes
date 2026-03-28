@@ -10,6 +10,7 @@ function App() {
   const [myView, setMyview] = useState(true); // true => grid view ans false => list view
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 
+  const [searchQuery, setSearchQuery] = useState("")
 
   const [takeInputData, setTakeInputData] = useState([
     {
@@ -47,7 +48,12 @@ function App() {
 
   return (
     <>
-      <Header toggleSideBar={toggleSideBar} myView={myView} setMyview={setMyview}></Header>
+      <Header
+        toggleSideBar={toggleSideBar}
+        myView={myView}
+        setMyview={setMyview}
+        setSearchQuery={setSearchQuery}
+      ></Header>
       <SideBar isSideBarOpen={isSideBarOpen}></SideBar>
       <div className='outlet'>
         <Outlet context={{
@@ -57,7 +63,8 @@ function App() {
           takeInputData,
           setTakeInputData,
           archivedNotes,
-          setArchivedNotes
+          setArchivedNotes,
+          searchQuery
         }}></Outlet>
 
       </div>
